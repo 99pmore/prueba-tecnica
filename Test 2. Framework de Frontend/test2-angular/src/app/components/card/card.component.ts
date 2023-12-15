@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Product } from 'src/app/models/product.interface';
 
 @Component({
   selector: 'app-card',
@@ -10,4 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class CardComponent {
 
+  @Input() product !: Product
 }
