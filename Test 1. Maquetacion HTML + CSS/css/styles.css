@@ -1,5 +1,5 @@
 .filters-open {
-    height: 30vh !important;
+    height: auto !important;
     bottom: 0 !important;
 
     transition: all 0.3s;
