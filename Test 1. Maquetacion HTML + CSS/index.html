@@ -4,8 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Test 1</title>
+        <script src="./js/script.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://kit.fontawesome.com/2be79f53d5.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <header class="fixed top-0 w-full">
@@ -187,10 +189,16 @@
             </div>
         </div>
 
-        <button class="bg-blue-700 text-white py-2 px-5 rounded fixed bottom-3 text-sm font-semibold">
+        <button id="filters-btn" class="bg-blue-700 text-white py-2 px-5 rounded fixed bottom-3 text-sm font-semibold" onclick="toggleFilters()">
             FILTRAR
             <i class="fa-solid fa-filter ml-2" style="color: #ffffff;"></i>
         </button>
+
+        <div id="filters" class="bg-white h-0 w-full p-4 fixed bottom-[-100%] z-50 flex flex-col">
+            <h2 class="text-xl font-bold">Filtros</h2>
+        </div>
+
+        <div id="darkbg" class="bg-black fixed top-0 left-0 h-full w-full opacity-0 z-40" onclick="toggleFilters()"></div>
     </main>
 
     <footer>

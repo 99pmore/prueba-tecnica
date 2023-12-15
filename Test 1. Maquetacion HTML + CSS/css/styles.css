@@ -1,0 +1,15 @@
+.filters-open {
+    height: 30vh !important;
+    bottom: 0 !important;
+
+    transition: all 0.3s;
+}
+
+.visible {
+    display: block;
+    opacity: 0.75 !important;
+
+    width: 100%;
+
+    transition: opacity 0.3s;
+}
