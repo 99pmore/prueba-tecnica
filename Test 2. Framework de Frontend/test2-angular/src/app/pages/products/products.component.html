@@ -2,6 +2,7 @@
 
 <main class="w-full mt-[64px] py-10 px-3 flex flex-col gap-5 items-center">
     <h2 class="text-3xl font-bold">Productos</h2>
+
     <div class="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         <app-card *ngFor="let product of products" [product]="product"></app-card>
     </div>
@@ -14,37 +15,9 @@
         <i class="fa-solid fa-chevron-right" style="color: #1d4ed8;"></i>
     </div>
 
-    <app-filters-btn class="fixed bottom-3"></app-filters-btn>
+    <app-filters-btn (filtersBtnClicked)="filtersBtnClicked = $event" class="fixed bottom-3"></app-filters-btn>
 
-    <div id="filters" class="bg-white h-0 w-full fixed bottom-[-100%] z-50 flex flex-col lg:w-1/2 xl:w-1/2">
-        <button class="bg-white w-4 h-4 p-4 border border-gray-200 rounded flex items-center justify-center absolute -top-4 right-4" onclick="toggleFilters()">
-            <i class="fa-solid fa-xmark" style="color: #000000;"></i>
-        </button>
-        <div class="py-2 px-4">
-            <h2 class="text-xl font-bold py-3">Filtros</h2>
-            <div class="flex flex-col">
-                <div class="w-full py-4 flex justify-between border-t border-gray-200">
-                    <label for="smartphones">Smartphones</label>
-                    <input type="checkbox" id="smartphones" class="w-5 h-5 rounded">
-                </div>
-                <div class="w-full py-4 flex justify-between border-t border-gray-200">
-                    <label for="laptop">Portátiles</label>
-                    <input type="checkbox" id="laptop" class="w-5 h-5 rounded">
-                </div>
-                <div class="w-full py-4 flex justify-between border-t border-b border-gray-200">
-                    <label for="home">Decoración de hogar</label>
-                    <input type="checkbox" id="home" class="w-5 h-5 rounded">
-                </div>
-            </div>
-        </div>
-        <div class="bg-gray-200 p-4 flex justify-evenly items-center gap-5">
-            <button class="bg-gray-100 text-gray-500 border border-gray-300 w-full py-2 px-5 rounded text-sm font-semibold">LIMPIAR</button>
-            <button id="filters-btn" class="bg-blue-700 text-white w-full py-2 px-5 rounded text-sm font-semibold">
-                FILTRAR
-                <i class="fa-solid fa-filter ml-2" style="color: #ffffff;"></i>
-            </button>
-        </div>
-    </div>
+    <app-filters *ngIf="filtersBtnClicked" (filtersBtnClicked)="filtersBtnClicked = $event" class="w-full fixed bottom-0 z-50"></app-filters>
 
-    <div id="darkbg" class="bg-black fixed top-0 left-0 opacity-0 z-40" onclick="toggleFilters()"></div>
+    <div *ngIf="filtersBtnClicked" class="bg-black fixed top-0 left-0 w-full h-full opacity-70 z-40" (click)="toggleFilters()"></div>
 </main>
