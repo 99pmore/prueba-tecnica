@@ -10,6 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class CategoryBoxComponent {
 
-  @Input() category!: string;
+  @Input() category: string ='';
 
 }

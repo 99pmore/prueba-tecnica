@@ -11,7 +11,7 @@ import { CategoryBoxComponent } from "../category-box/category-box.component";
     standalone: true,
     templateUrl: './filters.component.html',
     styleUrls: ['./filters.component.scss'],
-    imports: [CommonModule, FontAwesomeModule]
+    imports: [CommonModule, FontAwesomeModule, CategoryBoxComponent]
 })
 export class FiltersComponent implements OnInit {
 
@@ -35,9 +35,13 @@ export class FiltersComponent implements OnInit {
   }
 
   private getCategories() {
+    let lastCategory: string = '';
     this.productsService.getProducts().subscribe((products) => {
       products.map((product) => {
-        this.categories.push(product.category)
+        if(product.category !== lastCategory){
+          this.categories.push(product.category)
+        }
+        lastCategory = product.category
       });
     });
   } 
