@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('products', ProductController::class);
+Route::get('/products/{search?}', [ProductController::class, 'index'])->where('search', 'search');
+Route::get('/products/{id}', [ProductController::class, 'show']);
