@@ -1,24 +1,44 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { ProductsService } from 'src/app/services/products.service';
+import { CategoryBoxComponent } from "../category-box/category-box.component";
 
 @Component({
-  selector: 'app-filters',
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
-  templateUrl: './filters.component.html',
-  styleUrls: ['./filters.component.scss']
+    selector: 'app-filters',
+    standalone: true,
+    templateUrl: './filters.component.html',
+    styleUrls: ['./filters.component.scss'],
+    imports: [CommonModule, FontAwesomeModule]
 })
-export class FiltersComponent {
+export class FiltersComponent implements OnInit {
 
   @Output() filtersBtnClicked = new EventEmitter<boolean>();
+
+  public categories: string[] = [];
   
   public faXmark = faXmark;
   public faFilter = faFilter;
 
+  constructor(
+    private productsService: ProductsService
+  ) {}
+
+  ngOnInit(): void {
+    this.getCategories();
+  }
+
   public toggleFilters() {
     this.filtersBtnClicked.emit(false);
   }
+
+  private getCategories() {
+    this.productsService.getProducts().subscribe((products) => {
+      products.map((product) => {
+        this.categories.push(product.category)
+      });
+    });
+  } 
 }
