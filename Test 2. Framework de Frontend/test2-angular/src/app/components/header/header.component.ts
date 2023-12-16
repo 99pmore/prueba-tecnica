@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-
+import { faCartShopping, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -14,7 +11,9 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent {
 
-  public faCartShopping = faCartShopping
-  public faMagnifyingGlass = faMagnifyingGlass
-  public faBars = faBars
+  public cartProducts: number = 0;
+
+  public faCartShopping = faCartShopping;
+  public faMagnifyingGlass = faMagnifyingGlass;
+  public faBars = faBars;
 }
