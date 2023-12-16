@@ -19,7 +19,16 @@ class ProductController extends Controller
             'verify' => false
         ])->get($this->apiBaseUrl);
         
-        $products = $response->json();
+        $responseData = $response->json();
+        $products = $responseData['products'];
+
+        if ($request->has('category')) {
+            $category = $request->input('category');
+            $products = array_filter($products, function ($product) use ($category) {
+                return isset($product['category']) && $product['category'] === $category;
+            });
+        }
+
         return $products;
     }
 
