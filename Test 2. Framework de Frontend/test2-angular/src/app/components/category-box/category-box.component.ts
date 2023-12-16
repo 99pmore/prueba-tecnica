@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class CategoryBoxComponent {
 
-  @Input() category: string ='';
+  @Input() category: string = '';
+  @Output() checkboxChanged = new EventEmitter<boolean>();
+
+  onCheckboxChange() {
+    this.checkboxChanged.emit(true);
+  }
 
 }

@@ -18,6 +18,7 @@ export class FiltersComponent implements OnInit {
   @Output() filtersBtnClicked = new EventEmitter<boolean>();
 
   public categories: string[] = [];
+  public selectedCategories: string[] = [];
   
   public faXmark = faXmark;
   public faFilter = faFilter;
@@ -45,4 +46,13 @@ export class FiltersComponent implements OnInit {
       });
     });
   } 
+
+  public onCheckboxChange(category: string) {
+    if (this.selectedCategories.includes(category)) {
+      this.selectedCategories = this.selectedCategories.filter(c => c !== category);
+
+    } else {
+      this.selectedCategories.push(category);
+    }
+  }
 }
