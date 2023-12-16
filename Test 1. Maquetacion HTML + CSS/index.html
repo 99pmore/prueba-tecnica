@@ -203,7 +203,7 @@
             <i class="fa-solid fa-filter ml-2" style="color: #ffffff;"></i>
         </button>
 
-        <div id="filters" class="bg-white h-0 w-full fixed bottom-[-100%] z-50 flex flex-col lg:w-1/2 xl:w-1/2">
+        <form id="filters" class="bg-white h-0 w-full fixed bottom-[-100%] z-50 flex flex-col lg:w-1/2 xl:w-1/2">
             <button class="bg-white w-4 h-4 p-4 border border-gray-200 rounded flex items-center justify-center absolute -top-4 right-4" onclick="toggleFilters()">
                 <i class="fa-solid fa-xmark" style="color: #000000;"></i>
             </button>
@@ -225,13 +225,13 @@
                 </div>
             </div>
             <div class="bg-gray-200 p-4 flex justify-evenly items-center gap-5">
-                <button class="bg-gray-100 text-gray-500 border border-gray-300 w-full py-2 px-5 rounded text-sm font-semibold">LIMPIAR</button>
-                <button id="filters-btn" class="bg-blue-700 text-white w-full py-2 px-5 rounded text-sm font-semibold">
+                <button type="reset" class="bg-gray-100 text-gray-500 border border-gray-300 w-full py-2 px-5 rounded text-sm font-semibold">LIMPIAR</button>
+                <button type="submit" id="filters-btn" class="bg-blue-700 text-white w-full py-2 px-5 rounded text-sm font-semibold">
                     FILTRAR
                     <i class="fa-solid fa-filter ml-2" style="color: #ffffff;"></i>
                 </button>
             </div>
-        </div>
+        </form>
 
         <div id="darkbg" class="bg-black fixed top-0 left-0 opacity-0 z-40" onclick="toggleFilters()"></div>
     </main>

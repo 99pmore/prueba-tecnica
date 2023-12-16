@@ -1,4 +1,4 @@
-<div id="filters" class="bg-white flex flex-col lg:w-1/2 xl:w-1/2">
+<form class="bg-white flex flex-col lg:w-1/2 xl:w-1/2">
     <button class="bg-white w-4 h-4 p-4 border border-gray-200 rounded flex items-center justify-center absolute -top-4 right-4" (click)="toggleFilters()">
         <fa-icon [icon]="faXmark" [style]="{'color': '#000'}"></fa-icon>
     </button>
@@ -9,10 +9,10 @@
         </div>
     </div>
     <div class="bg-gray-200 p-4 flex justify-evenly items-center gap-5">
-        <button class="bg-gray-100 text-gray-500 border border-gray-300 w-full py-2 px-5 rounded text-sm font-semibold">LIMPIAR</button>
-        <button id="filters-btn" class="bg-blue-700 text-white w-full py-2 px-5 rounded text-sm font-semibold">
+        <button type="reset" class="bg-gray-100 text-gray-500 border border-gray-300 w-full py-2 px-5 rounded text-sm font-semibold">LIMPIAR</button>
+        <button type="submit" class="bg-blue-700 text-white w-full py-2 px-5 rounded text-sm font-semibold">
             FILTRAR
             <fa-icon [icon]="faFilter" [styles]="{'color': '#fff'}"></fa-icon>
         </button>
     </div>
-</div>
+</form>
