@@ -4,13 +4,14 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { FiltersBtnComponent } from 'src/app/components/filters-btn/filters-btn.component';
 import { FiltersComponent } from 'src/app/components/filters/filters.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/product.interface';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, CardComponent, FiltersBtnComponent, FiltersComponent],
+  imports: [CommonModule, HeaderComponent, CardComponent, FiltersBtnComponent, FiltersComponent, FooterComponent],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
