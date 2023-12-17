@@ -24,22 +24,22 @@ class ProductController extends Controller
             $response = Http::withOptions([
                 'verify' => false
             ])->get($apiUrl);
+
+            $responseData = $response->json();
+            $products = $responseData['products'];
+          
+            if ($request->has('category')) {
+                $category = $request->input('category');
+                $products = array_filter($products, function ($product) use ($category) {
+                    return isset($product['category']) && $product['category'] === $category;
+                });
+            }
+          
+            return $products;
             
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error al obtener los productos'], 500);
         }
-        
-        $responseData = $response->json();
-        $products = $responseData['products'];
-      
-        if ($request->has('category')) {
-            $category = $request->input('category');
-            $products = array_filter($products, function ($product) use ($category) {
-                return isset($product['category']) && $product['category'] === $category;
-            });
-        }
-      
-        return $products;
     }
 
     /**
