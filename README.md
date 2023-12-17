@@ -58,16 +58,20 @@ Abrir archivo index.html en un navegador.
 
 ## Test 2
 Ejecutar comandos:
-* npm install
-* ng serve
+
+$ npm install
+
+$ ng serve
 
 > [!NOTE]
 > Más información en Readme del proyecto de Angular
 
 ## Test 3
 Ejecutar comandos:
-* composer install
-* php artisan serve
+
+$ composer install
+
+$ php artisan serve
 
 > [!NOTE]
 > Más información en Readme del proyecto de Laravel
