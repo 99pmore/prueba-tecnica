@@ -1,13 +1,22 @@
 <header class="fixed top-0 w-full">
-    <nav class="bg-black p-5 flex justify-between">
+    <nav class="bg-black p-5 flex justify-between relative">
         <div>
             <button>
                 <fa-icon [icon]="faBars" [styles]="{'color': '#fff'}"></fa-icon>
             </button>
         </div>
+
+        <form *ngIf="searchBarOpen" class="w-3/4 lg:w-1/2 xl:w-1/2 relative" (ngSubmit)="search()">
+            <input [(ngModel)]="q" type="text" class="w-full px-2 border border-gray-200 rounded outline-none" name="q">
+            <button type="submit" class="absolute right-2">
+                <fa-icon [icon]="faMagnifyingGlass" [styles]="{'color': '#000'}"></fa-icon>
+            </button>
+        </form>
+
         <div class="flex gap-4">
-            <button>
-                <fa-icon [icon]="faMagnifyingGlass" [styles]="{'color': '#fff'}"></fa-icon>
+            <button (click)="toggleSearchBar()">
+                <fa-icon *ngIf="!searchBarOpen" [icon]="faMagnifyingGlass" [styles]="{'color': '#fff'}"></fa-icon>
+                <fa-icon *ngIf="searchBarOpen" [icon]="faXmark" [styles]="{'color': '#fff'}"></fa-icon>
             </button>
             <button class="relative">
                 <fa-icon [icon]="faCartShopping" [styles]="{'color': '#fff'}"></fa-icon>
