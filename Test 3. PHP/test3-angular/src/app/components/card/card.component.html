@@ -1,5 +1,5 @@
 <div class="min-w-[125px] h-full border border-gray-200 rounded-md flex flex-col justify-between">
-    <div class="h-full p-3 flex flex-col justify-between gap-3">
+    <div class="h-full p-3 flex flex-col justify-between gap-3 cursor-pointer" [routerLink]="['/products', product.id]">
         <div class="aspect-video">
             <img [src]="product.images[0]" [alt]="'Imagen de ' + product.title" class="aspect-video object-contain">
         </div>
