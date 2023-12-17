@@ -34,8 +34,13 @@ class ProductController extends Controller
                     return isset($product['category']) && $product['category'] === $category;
                 });
             }
+
+            $productsArray = [];
+            foreach ($products as $product) {
+                $productsArray[] = $product;
+            }     
           
-            return $products;
+            return $productsArray;
             
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error al obtener los productos'], 500);
