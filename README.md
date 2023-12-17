@@ -8,7 +8,7 @@ En este apartado he elegido el framework de Frontend Angular en su versión 16 y
 * Card: Es la tarjeta resumen del producto. En lugar de añadir una a una, se crean de forma dinámica gracias a la directiva ng-For.
 * Category-box: Son las filas de categorías a filtrar con su correspondiente checkbox. También se crean de manera dinámica según las categorías que se reciban.
 * Filters: Es la pestaña de filtros que aparece en la zona inferior de la pantalla.
-* Filters.btn: Es el botoón flotante que hace aparecer el componente de filtros.
+* Filters.btn: Es el botón flotante que hace aparecer el componente de filtros.
 * Footer: Es el footer de la web.
 * Header: Es la barra superior con sus respectivos iconos.
 
