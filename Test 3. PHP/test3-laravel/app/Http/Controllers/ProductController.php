@@ -8,14 +8,12 @@ use Illuminate\Support\Facades\Http;
 
 class ProductController extends Controller
 {
-    protected $apiBaseUrl = 'https://dummyjson.com/products';
-
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request, $search = null)
     {
-        $apiUrl = $this->apiBaseUrl;
+        $apiUrl = config('services.products_api.base_url');
 
         if ($search && $request->has('q')) {
             $query = $request->input('q');
@@ -49,7 +47,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $apiUrl = $this->apiBaseUrl . '/' . $id;
+        $apiUrl = config('services.products_api.base_url') . '/' . $id;
 
         $response = Http::withOptions([
             'verify' => false
