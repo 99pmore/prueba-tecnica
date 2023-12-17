@@ -1,0 +1,37 @@
+<footer class="lg:flex xl:flex lg:justify-between xl:justify-between">
+    <div class="bg-black p-8 flex justify-center items-center flex-col gap-4 lg:w-1/2 xl:w-1/2">
+        <p class="text-white font-bold text-sm">¿Podemos ayudarte?</p>
+        <div class="flex gap-3">
+            <div class="flex justify-center items-center flex-col gap-2">
+                <button class="bg-white rounded-full p-6 h-14 w-14 flex justify-center items-center">
+                    <fa-icon [icon]="faMessage" [style]="{'color': '#000'}"></fa-icon>
+                </button>
+                <span class="text-white font-bold text-xs">CHAT</span>
+            </div>
+            <div class="flex justify-center items-center flex-col gap-2">
+                <button class="bg-white rounded-full p-6 h-14 w-14 flex justify-center items-center">
+                    <fa-icon [icon]="faPhoneFlip" [style]="{'color': '#000'}"></fa-icon>
+                </button>
+                <span class="text-white font-bold text-xs">LLAMAR</span>
+            </div>
+        </div>
+    </div>
+    <div class="p-8 flex justify-center items-center flex-col gap-8 lg:w-1/2 xl:w-1/2 lg:border-t lg:border-gray-200 xl:border-t xl:border-gray-200">
+        <div class="bg-white flex justify-cernter items-center flex-col gap-4">
+            <a href="#" class="text-sm text-center font-bold">SOBRE NOSOTROS</a>
+            <a href="#" class="text-sm text-center font-bold">MEDIDAS DE SEGURIDAD (COVID-19)</a>
+            <a href="#" class="text-sm text-center font-bold">CÓMO MERCAR</a>
+            <a href="#" class="text-sm text-center font-bold">ROVEEDORES</a>
+            <a href="#" class="text-sm text-center font-bold">CONTÁCTENOS</a>
+            <a href="#" class="text-sm text-center font-bold">ZONA DE COBERTURA</a>
+        </div>
+        <hr class="w-9">
+        <div class="flex justify-center items-center flex-col gap-4">
+            <a href="https://www.instagram.com/agiliacenter/?hl=es" target="_blank" class="bg-blue-700 p-4 w-8 h-8 rounded-full flex justify-center items-center">
+                <fa-icon [icon]="faInstagram" [style]="{'color': '#fff'}"></fa-icon>
+            </a>
+            <a href="#" class="text-xs text-center font-bold">POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</a>
+        </div>
+    </div>
+    <div class="bg-black h-12"></div>
+</footer>

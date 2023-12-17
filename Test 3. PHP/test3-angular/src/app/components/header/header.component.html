@@ -1,0 +1,18 @@
+<header class="fixed top-0 w-full">
+    <nav class="bg-black p-5 flex justify-between">
+        <div>
+            <button>
+                <fa-icon [icon]="faBars" [styles]="{'color': '#fff'}"></fa-icon>
+            </button>
+        </div>
+        <div class="flex gap-4">
+            <button>
+                <fa-icon [icon]="faMagnifyingGlass" [styles]="{'color': '#fff'}"></fa-icon>
+            </button>
+            <button class="relative">
+                <fa-icon [icon]="faCartShopping" [styles]="{'color': '#fff'}"></fa-icon>
+                <span class="bg-blue-700 text-xs text-white h-4 w-4 rounded-full absolute -top-1 -right-2">{{ cartProducts }}</span>
+            </button>
+        </div>
+    </nav>
+</header>
