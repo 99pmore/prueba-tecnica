@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit {
 
   public products: Product[] = [];
   public filtersBtnClicked: boolean = false;
+  public filterCategories: string[] = [];
 
   public faChevronRight = faChevronRight
 
@@ -38,6 +39,10 @@ export class ProductsComponent implements OnInit {
 
   public onProductsReceived(products: Product[]) {
     this.products = products;
-   }
+  }
+
+  public onCategoriesReceived(categories: string[]) {
+    this.filterCategories = categories;
+  }
 
 }

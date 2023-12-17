@@ -1,4 +1,5 @@
-<button id="filters-btn" class="bg-blue-700 text-white py-2 px-5 rounded text-sm font-semibold" (click)="toggleFilters()">
+<button id="filters-btn" class="bg-blue-700 text-white py-2 px-5 rounded text-sm font-semibold flex justify-center gap-2" (click)="toggleFilters()">
     FILTRAR
     <fa-icon [icon]="faFilter" class="ml-2" [styles]="{'color': '#fff'}"></fa-icon>
+    <span *ngIf="filterCategoriesCount > 0" class="bg-white text-black font-bold px-3 rounded-full">{{ filterCategoriesCount }}</span>
 </button>

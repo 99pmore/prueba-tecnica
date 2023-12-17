@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,7 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 })
 export class FiltersBtnComponent {
 
+  @Input() filterCategoriesCount: number = 0;
   @Output() filtersBtnClicked = new EventEmitter<boolean>();
 
   public faFilter = faFilter;

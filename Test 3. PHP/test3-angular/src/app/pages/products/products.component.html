@@ -15,9 +15,9 @@
         <fa-icon [icon]="faChevronRight" [style]="{'color': '#1d4ed8'}"></fa-icon>
     </div>
 
-    <app-filters-btn (filtersBtnClicked)="filtersBtnClicked = $event" class="fixed bottom-3"></app-filters-btn>
+    <app-filters-btn [filterCategoriesCount]="filterCategories.length" (filtersBtnClicked)="filtersBtnClicked = $event" class="fixed bottom-3"></app-filters-btn>
 
-    <app-filters *ngIf="filtersBtnClicked" (filtersBtnClicked)="filtersBtnClicked = $event" (products)="onProductsReceived($event)" class="w-full fixed bottom-0 z-50"></app-filters>
+    <app-filters *ngIf="filtersBtnClicked" (filtersBtnClicked)="filtersBtnClicked = $event" (products)="onProductsReceived($event)" (filterCategories)="onCategoriesReceived($event)" class="w-full fixed bottom-0 z-50"></app-filters>
 
     <div *ngIf="filtersBtnClicked" class="bg-black fixed top-0 left-0 w-full h-full opacity-70 z-40" (click)="toggleFilters()"></div>
 </main>

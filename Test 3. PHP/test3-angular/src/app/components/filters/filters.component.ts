@@ -20,6 +20,7 @@ export class FiltersComponent implements OnInit {
 
   @Output() filtersBtnClicked = new EventEmitter<boolean>();
   @Output() products = new EventEmitter<Product[]>();
+  @Output() filterCategories = new EventEmitter<string[]>();
 
   public categories: string[] = [];
   public selectedCategories: string[] = [];
@@ -60,6 +61,7 @@ export class FiltersComponent implements OnInit {
       }, []);
    
       this.products.emit(allProducts);
+      this.filterCategories.emit(this.selectedCategories);
       this.filtersBtnClicked.emit(false);
     });
   }
