@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 export class CategoryBoxComponent {
 
   @Input() category: string = '';
+  @Input() selectedCategories: string[] = [];
   @Output() checkboxChanged = new EventEmitter<boolean>();
 
   onCheckboxChange() {

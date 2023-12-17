@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -18,12 +18,12 @@ import { forkJoin } from 'rxjs';
 })
 export class FiltersComponent implements OnInit {
 
+  @Input() selectedCategories: string[] = [];
   @Output() filtersBtnClicked = new EventEmitter<boolean>();
   @Output() products = new EventEmitter<Product[]>();
   @Output() filterCategories = new EventEmitter<string[]>();
 
   public categories: string[] = [];
-  public selectedCategories: string[] = [];
   
   public faXmark = faXmark;
   public faFilter = faFilter;
@@ -38,6 +38,18 @@ export class FiltersComponent implements OnInit {
 
   public toggleFilters() {
     this.filtersBtnClicked.emit(false);
+  }
+
+  public clearSelected(){
+    this.selectedCategories = [];
+    let allProducts: Product[] = [];
+    
+    this.productsService.getProducts().subscribe((products) => {
+      allProducts = products;
+      this.products.emit(allProducts);
+      this.toggleFilters();
+      this.filterCategories.emit(this.selectedCategories);
+    })
   }
 
   public onCheckboxChange(category: string) {
