@@ -8,11 +8,25 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
+  private url = 'http://127.0.0.1:8000/api/products';
+
   constructor(
     private httpClient: HttpClient
   ) { }
 
   public getProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>('../../assets/products/products.json');
+    return this.httpClient.get<Product[]>(this.url);
+  }
+
+  public getProductsByCategory(category: string) {
+    return this.httpClient.get<Product[]>(`${this.url}?category=${category}`);
+  }
+
+  public getSearchProducts(q: string) {
+    return this.httpClient.get<Product[]>(`${this.url}/search?q=${q}`);
+  }
+
+  public getProduct(id: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.url + `/${id}`);
   }
 }
