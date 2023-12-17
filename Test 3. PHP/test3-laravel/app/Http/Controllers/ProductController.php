@@ -49,12 +49,17 @@ class ProductController extends Controller
     {
         $apiUrl = config('services.products_api.base_url') . '/' . $id;
 
-        $response = Http::withOptions([
-            'verify' => false
-        ])->get($apiUrl);
-     
-        $product = $response->json();
-     
-        return $product;
+        try {
+            $response = Http::withOptions([
+                'verify' => false
+            ])->get($apiUrl);
+         
+            $product = $response->json();
+         
+            return $product;
+
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al obtener los productos'], 500);
+        }
     }
 }
