@@ -18,15 +18,15 @@ export class ProductsService {
     return this.httpClient.get<Product[]>(this.url);
   }
 
-  public getProductsByCategory(category: string) {
+  public getProductsByCategory(category: string): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.url}?category=${category}`);
   }
 
-  public getSearchProducts(q: string) {
+  public getSearchProducts(q: string): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.url}/search?q=${q}`);
   }
 
-  public getProduct(id: string): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.url + `/${id}`);
+  public getProduct(id: string): Observable<Product> {
+    return this.httpClient.get<Product>(`${this.url}/${id}`);
   }
 }
